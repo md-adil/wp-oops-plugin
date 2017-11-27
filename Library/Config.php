@@ -60,3 +60,4 @@ class Config
         return array_key_exists($key, $this->configs);
     }
 }
+

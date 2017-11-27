@@ -11,8 +11,6 @@ use Adil\WPPlugin\Library\Config;
 
 class Controller
 {
-    protected static $instances = [];
-    protected static $configInstance;
     protected $config;
     protected $db;
     
@@ -26,15 +24,12 @@ class Controller
 
     protected function setConfig()
     {
-        if (!static::$configInstance) {
-            $configs = require(__DIR__ . '/../configs/config.php');
-            if (file_exists(__DIR__ . '/../configs/config.local.php')) {
-                $configs = array_replace_recursive($configs, require(__DIR__ . '/../configs/config.local.php'));
-            }
-            static::$configInstance = new Config($configs);
-        }
-        $this->config = static::$configInstance;
-    }
+		$configs = require(__DIR__ . '/../configs/config.php');
+		if (file_exists(__DIR__ . '/../configs/config.local.php')) {
+			$configs = array_replace_recursive($configs, require(__DIR__ . '/../configs/config.local.php'));
+		}
+		$this->config = new Config($configs);
+	}
     
     protected function view($path, $args = [])
     {
@@ -60,14 +55,11 @@ class Controller
         return function () use ($prefix, $callable) {
             list($class, $method) = explode('@', $callable);
             $className =  __NAMESPACE__ . '\\' . $class;
-            if (!isset(static::$instances[$className])) {
-                static::$instances[$className] = new $className;
-            }
-            $response = call_user_func([static::$instances[$className], $method]);
-            if (is_array($response)) {
-                echo wp_send_json($response);
-            } elseif ($response) {
+            $response = call_user_func([new $className, $method]);
+            if (is_string($response)) {
                 echo $response;
+            } elseif ($response) {
+                echo wp_send_json($response);
             }
         };
     }
