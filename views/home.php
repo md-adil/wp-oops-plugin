@@ -10,7 +10,7 @@
 </style>
 <div class="wrap">
 	<h1 class="admin-page-title">
-		Welcome
+		Welcome /*[PluginName]*/
 	</h1>
 	<h2 class="admin-page-subtitle">This is Subtitle</h2>
 </div>

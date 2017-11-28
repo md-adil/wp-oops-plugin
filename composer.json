@@ -1,0 +1,18 @@
+{
+    "name": "adil/wp-oops-pluign",
+    "authors": [
+        {
+            "name": "Md Adil",
+            "email": "md-adil@live.com"
+        }
+    ],
+    "require": {},
+    "autoload-dev": {
+    	"classmap": ["Composer/ComposerScripts.php"]
+    },
+    "scripts": {
+    	"post-create-project-cmd": [
+    		"Composer\\ComposerScripts::preCreate"
+    	]
+    }
+}

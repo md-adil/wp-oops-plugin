@@ -1,37 +1,40 @@
 <?php
+/*
+* Plugin Name: /*[PluginName]*/
+* Plugin URI: /*[PluginUrl]*/
+* Description: /*[Description]*/
+* Version: /*[Version]*/
+* Author: /*[Author]*/
+* Author URI: /*[AuthorUrl]*/
+* License: /*[License]*/
+* License URI: /*[LicenseUrl]*/
+* Text Domain: /*[TextDomain]*/
+* Domain Path: /*[DomainPath]*/
+*/
+/* https://developer.wordpress.org/plugins/the-basics/header-requirements/ */
 
-/**
- * Plugin Name: Wordpress Plugin
- * Plugin URI: wp-plugin.net
- * Description: Structure for your plugin
- * Version: 0.1
- * Author: Md Adil <md-adil@live.com>
- */
 
 use /*[Namespace]*/Controllers\Controller;
-
-
 /**
  * Autoload class name start with prefix
 */
 
 spl_autoload_register(function ($class) {
-
     // Define your own prefix
     $prefix = '/*[Namespace]*/';
-    $base_dir = __DIR__ . '/';
+    $base_dir = __DIR__ . DIRECTORY_SEPARATOR;
     $len = strlen($prefix);
     if (strncmp($prefix, $class, $len) !== 0) {
         return;
     }
     $relative_class = substr($class, $len);
-    $file = $base_dir . str_replace('\\', '/', $relative_class) . '.php';
+    $file = $base_dir . str_replace('\\', DIRECTORY_SEPARATOR, $relative_class) . '.php';
     if (file_exists($file)) {
         require $file;
     }
 });
 
-// Activation Hooks
+// Activation Hooks Registration
 register_activation_hook(__FILE__, Controller::resolve('ActivationController@activate'));
 register_deactivation_hook(__FILE__, Controller::resolve('ActivationController@deactivate'));
 

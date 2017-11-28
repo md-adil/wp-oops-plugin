@@ -1,6 +1,6 @@
 <?php
 
-use Adil\WPPlugin\Controllers\Controller;
+use /*[Namespace]*/Controllers\Controller;
 
 // Adding menus
 add_action('admin_menu', function () {

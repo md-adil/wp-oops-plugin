@@ -3,8 +3,7 @@
 /**
  * use your namespace instead
  */
-namespace Adil\WPPlugin\Controllers;
-
+namespace /*[Namespace]*/Controllers;
 /**
 *
 */
@@ -31,5 +30,5 @@ class ActivationController extends Controller
         // $table = 'Some tables';
         // $this->db->query("DROP TABLE IF EXISTS {$table}");
     }
-
 }
+

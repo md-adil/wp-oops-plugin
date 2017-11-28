@@ -2,12 +2,12 @@
 /**
  * use your namespace instead
  */
-namespace Adil\WPPlugin\Controllers;
+namespace /*[Namespace]*/Controllers;
 
 /**
  * use your namespace instead
  */
-use Adil\WPPlugin\Library\Config;
+use /*[Namespace]*/Library\Config;
 
 class Controller
 {

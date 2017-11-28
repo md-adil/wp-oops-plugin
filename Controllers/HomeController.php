@@ -2,7 +2,7 @@
 /**
  * use your namespace instead
  */
-namespace Adil\WPPlugin\Controllers;
+namespace /*[Namespace]*/Controllers;
 /**
 *
 */

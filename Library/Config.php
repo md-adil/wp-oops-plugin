@@ -2,7 +2,7 @@
 /**
  * use your namespace instead
  */
-namespace Adil\WPPlugin\Library;
+namespace /*[Namespace]*/Library;
 
 class Config
 {
